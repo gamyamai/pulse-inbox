@@ -1,0 +1,17 @@
+name: static_code_analysis
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  sonarqube:
+    uses: gamyamai/shared-deployment-workflows/.github/workflows/sonarqube-scan.yaml@v0.1
+    with:
+      sonar_project_key: gamyamai_pulse-inbox_f94b3165-7230-4326-936d-ea697c43193f
+    secrets: inherit
